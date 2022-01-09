@@ -1,7 +1,8 @@
 import React from 'react';
+import Posts from './components/posts.component';
 
-const App = function app() {
-	return <h1>Hello World</h1>;
+const App = () => {
+	return <Posts />;
 };
 
 export default App;
