@@ -19,8 +19,8 @@ const Post = ({
 		<div className="card-body p-3 bg-slate-300 flex flex-col border-2 border-black">
 			<h5 className="card-title my-auto">{title}</h5>
 			<p className="card-text my-auto">{date}</p>
-			<p className="card-text my-auto">{content}</p>
 			<img src={img} alt="post" className="w-auto" />
+			<p className="card-text my-auto">{content}</p>
 			<hr />
 			<div className="flex space-x-2">
 				<input placeholder="comment" className="card-text p-2 flex-grow" />

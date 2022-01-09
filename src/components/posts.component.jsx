@@ -61,10 +61,13 @@ class Posts extends Component {
 					noOfPostsLiked={this.getNoOfLikedPosts()}
 					noOfPostsDisliked={this.getNoOfDislikedPosts()}
 				/>
-				<button type="button" className="btn btn-primary m-4">
-					Add New Post
-				</button>
-				<div className="flex flex-col space-y-4 w-2/3 m-4">
+				<div className="flex flex-col space-y-4 w-2/5 m-auto">
+					<button
+						type="button"
+						className="btn btn-primary w-1/2 p-2 my-4 mx-auto"
+					>
+						Add New Post
+					</button>
 					{posts.map(({ id, title, date, content, img, liked }) => (
 						<Post
 							key={id}
