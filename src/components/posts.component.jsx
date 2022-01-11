@@ -9,6 +9,7 @@ class Posts extends Component {
 		super();
 		this.state = {
 			posts: postsData,
+			nonce: postsData.length,
 		};
 	}
 
@@ -53,6 +54,23 @@ class Posts extends Component {
 		);
 	};
 
+	createADummyNewPost = () => {
+		const { posts, nonce } = this.state;
+		const dummyPost = {
+			id: nonce + 1,
+			title: `Post ${nonce + 1}`,
+			date: '10/11/2020',
+			content:
+				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tincidunt eget justo ac aliquam. Ut commodo purus fermentum tincidunt vulputate. Quisque mattis dolor vel metus consectetur suscipit. Donec pulvinar gravida finibus. Ut non velit mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus egestas tincidunt ipsum quis ultricies.',
+			img: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
+			liked: '',
+		};
+		this.setState({
+			posts: [dummyPost, ...posts],
+			nonce: nonce + 1,
+		});
+	};
+
 	render() {
 		const { posts } = this.state;
 		return (
@@ -61,10 +79,11 @@ class Posts extends Component {
 					noOfPostsLiked={this.getNoOfLikedPosts()}
 					noOfPostsDisliked={this.getNoOfDislikedPosts()}
 				/>
-				<div className="flex flex-col space-y-4 w-2/5 m-auto">
+				<div className="flex flex-col space-y-4 w-3/5 m-auto">
 					<button
 						type="button"
 						className="btn btn-primary w-1/2 p-2 my-4 mx-auto"
+						onClick={this.createADummyNewPost}
 					>
 						Add New Post
 					</button>
