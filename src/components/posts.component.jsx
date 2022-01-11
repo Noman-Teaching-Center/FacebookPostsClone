@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Post from './post.component';
 import postsData from '../services/posts.services';
 import Navbar from './navbar.component';
+import NewPostForm from './newPostForm.component';
 
 class Posts extends Component {
 	constructor() {
@@ -54,6 +55,7 @@ class Posts extends Component {
 		);
 	};
 
+	// eslint-disable-next-line react/no-unused-class-component-methods
 	createADummyNewPost = () => {
 		const { posts, nonce } = this.state;
 		const dummyPost = {
@@ -83,10 +85,12 @@ class Posts extends Component {
 					<button
 						type="button"
 						className="btn btn-primary w-1/2 p-2 my-4 mx-auto"
-						onClick={this.createADummyNewPost}
+						data-toggle="modal"
+						data-target="#exampleModalCenter"
 					>
 						Add New Post
 					</button>
+					<NewPostForm />
 					{posts.map(({ id, title, date, content, img, liked }) => (
 						<Post
 							key={id}
